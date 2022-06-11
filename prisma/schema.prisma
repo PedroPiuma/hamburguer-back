@@ -17,6 +17,7 @@ model User {
   email       String  @unique @db.VarChar(255)
   tel         String  @db.VarChar(14)
   password    String
+  level       String  @default("user")    
   comments    Comment[]
 }
 

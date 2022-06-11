@@ -8,12 +8,11 @@
     "seed": "node prisma/seed.js"
   },
   "scripts": {
-    "db:pull": "npx prisma db pull",
-    "db:generate": "npx prisma generate",
     "start": "npx prisma migrate deploy && npx prisma db seed && node src/index.js",
     "dev": "nodemon src/index.js",
     "db:push": "npx prisma db push",
     "db:seed": "npx prisma db seed",
+    "db:database-reset": "npx prisma migrate reset",
     "db:migrate-dev": "npx prisma migrate dev --name",
     "db:migrate-prod": "npx prisma migrate deploy",
     "studio": "npx prisma studio"

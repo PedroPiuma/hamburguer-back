@@ -1,4 +1,4 @@
-import { comparePassword, createAccessToken, prisma } from "../helpers/utils.js"
+import { comparePassword, createAccessToken, hashPassword, prisma } from "../helpers/utils.js"
 
 export const login = async (req, rep) => {
     try {
@@ -16,4 +16,13 @@ export const login = async (req, rep) => {
     } catch (error) {
         rep.status(500).send({ error: 'Erro de servidor!' })
     }
+}
+
+export const signup = async (req, rep) => {
+    const { firstName, lastName, email, tel, password: pass } = req.body
+    try {
+        const password = await hashPassword(pass)
+        const { password: hashedPassword, level, ...user } = await prisma.user.create({ data: { firstName, lastName, email, tel, password } })
+        rep.send(user)
+    } catch (error) { rep.status(400).send({ error: 'Usuário já existente!' }) }
 }

@@ -6,14 +6,16 @@ const userData = [
         lastName: 'developer',
         email: 'luisppiuma@gmail.com',
         tel: '(53)98111-9556',
-        password: 'hamburguerappproject@piuma.0123456789'
+        password: 'hamburguerappproject@piuma.0123456789',
+        level: 'admin'
     },
     {
         firstName: 'Proprietário',
         lastName: 'Hamburgueria',
         email: 'email@example.com',
         tel: '(00)0000-0000',
-        password: '123456789'
+        password: '123456789',
+        level: 'admin'
     },
 ]
 
